@@ -58,7 +58,62 @@ int main() {
             tCpoint[iVal1] = new CPoint2D(iVal2, iVal3);}
             vstrings.clear();
             continue;
-        } else if (sCommnad == "!createPointCopy") {
+        }
+        else if (sCommnad == "!showPoint"){
+            if (vstrings.capacity()<2) cout<<"ERROR"<<endl;
+            else
+            {
+                iVal1 = stoi(vstrings[1].c_str());
+                if (tCpoint[(int)iVal1]== nullptr) cout<<"Error"<<endl;
+                else
+                cout<<"CPoint(<"<<tCpoint[(int)iVal1]->dGetXaxis()<<">,<"<<tCpoint[(int)iVal1]->dGetYaxis()<<">))"<<endl;
+
+            }
+            vstrings.clear();
+            continue;}
+
+        else if (sCommnad == "!addRect"){
+            if (vstrings.capacity()<3) cout<<"ERROR"<<endl;
+            else{
+                iVal1 = stoi(vstrings[1].c_str());
+                iVal2=stod (vstrings[2].c_str());
+                if (tCrectangle[iVal1]== nullptr||tCrectangle[(int)iVal2]== nullptr) cout<<"Error"<<endl;
+                else {
+                    *tCrectangle[iVal1]=*tCrectangle[iVal1]+*tCrectangle[(int)iVal2];}}
+            vstrings.clear();
+        }
+        else if (sCommnad == "!addPoint"){
+            if (vstrings.capacity()<3) cout<<"ERROR"<<endl;
+            else{
+                iVal1 = stoi(vstrings[1].c_str());
+                iVal2=stod (vstrings[2].c_str());
+                if (tCrectangle[iVal1]== nullptr||tCpoint[(int)iVal2]== nullptr) cout<<"Error"<<endl;
+                else {
+                    *tCrectangle[iVal1]=*tCrectangle[iVal1]+*tCpoint[(int)iVal2];}}
+            vstrings.clear();
+        }
+        else if (sCommnad == "!assignRect"){
+            if (vstrings.capacity()<3) cout<<"ERROR"<<endl;
+            else{
+                iVal1 = stoi(vstrings[1].c_str());
+                iVal2=stod (vstrings[2].c_str());
+                if (tCrectangle[iVal1]== nullptr||tCrectangle[(int)iVal2]== nullptr) cout<<"Error"<<endl;
+                else {
+                    *tCrectangle[iVal1]=*tCrectangle[(int)iVal2];}}
+            vstrings.clear();
+        }
+        else if (sCommnad == "!assignPoint"){
+            if (vstrings.capacity()<3) cout<<"ERROR"<<endl;
+            else{
+                iVal1 = stoi(vstrings[1].c_str());
+                iVal2=stod (vstrings[2].c_str());
+                if (tCpoint[(int)iVal2]== nullptr) cout<<"Error"<<endl;
+                else {
+                    *tCpoint[iVal1]=*tCpoint[(int)iVal2];}}
+            vstrings.clear();
+        }
+
+        else if (sCommnad == "!createPointCopy") {
             if (vstrings.capacity()<3) cout<<"ERROR"<<endl;
             else{
             iVal1 = stoi(vstrings[1].c_str());

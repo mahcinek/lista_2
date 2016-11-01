@@ -22,16 +22,17 @@ double CPoint2D::dCheckDistance(CPoint2D secound) {
     return (double) sqrt(pow(secound.dGetXaxis() - dGetXaxis(), 2) + pow(secound.dGetYaxis() - dGetYaxis(), 2));
 }
 
-CPoint2D::CPoint2D(CPoint2D &cPointother) {
+CPoint2D::CPoint2D(const CPoint2D &cPointother) {
     dXaxis= new double ( cPointother.dGetXaxis());
     dYaxis= new double ( cPointother.dGetYaxis());
 }
 
-CPoint2D CPoint2D::operator=(CPoint2D &cpointsec) {
+CPoint2D CPoint2D::operator=(const CPoint2D &cpointsec) {
     delete dXaxis;
     delete dYaxis;
     dXaxis=new double (cpointsec.dGetXaxis());
     dYaxis = new double (cpointsec.dGetYaxis());
+    return *this;
 }
 
 

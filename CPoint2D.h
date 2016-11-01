@@ -13,14 +13,14 @@ private:
 public:
     void vSetXaxis (double iX) { *dXaxis= iX;}
     void vSetYaxis (double iY) { *dYaxis= iY;}
-    double dGetXaxis (){ return *dXaxis;}
-    double dGetYaxis (){ return *dYaxis;}
+    double dGetXaxis () const{ return *dXaxis;}
+    double dGetYaxis () const{ return *dYaxis;}
     CPoint2D (double dX,double dY);
     //CPoint2D();
     ~CPoint2D();
     double dCheckDistance (CPoint2D secound);
-    CPoint2D ( CPoint2D &cPointother);
-    CPoint2D operator= (CPoint2D &cpointsec);
+    CPoint2D ( const CPoint2D &cPointother);
+    CPoint2D operator= (const CPoint2D &cpointsec);
 };
 
 

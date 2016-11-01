@@ -18,11 +18,11 @@ double CRectangle::dCountField() {
     return b;
 }
 
-CRectangle::CRectangle(CRectangle &cRectangleOther):cpFirstPoint(cRectangleOther.getcpFirstPoint().dGetXaxis(),cRectangleOther.getcpFirstPoint().dGetYaxis()),cpSecoundPoint(cRectangleOther.getcpSecoundPoint().dGetXaxis(),cRectangleOther.getcpSecoundPoint().dGetYaxis()) {
+CRectangle::CRectangle(const CRectangle &cRectangleOther):cpFirstPoint(cRectangleOther.getcpFirstPoint().dGetXaxis(),cRectangleOther.getcpFirstPoint().dGetYaxis()),cpSecoundPoint(cRectangleOther.getcpSecoundPoint().dGetXaxis(),cRectangleOther.getcpSecoundPoint().dGetYaxis()) {
 
 }
 
-CRectangle CRectangle::operator +(CRectangle &crectsec) {
+CRectangle CRectangle::operator +(const CRectangle &crectsec) {
     if (this->getcpFirstPoint().dGetXaxis()<this->getcpSecoundPoint().dGetXaxis())
     {
 
@@ -74,7 +74,7 @@ CRectangle CRectangle::operator +(CRectangle &crectsec) {
     return *this;
 }
 
-CRectangle CRectangle::operator+(CPoint2D &cpointsec) {
+CRectangle CRectangle::operator+(const  CPoint2D &cpointsec) {
 
     if (this->getcpFirstPoint().dGetXaxis()<this->getcpSecoundPoint().dGetXaxis())
     {
@@ -109,7 +109,8 @@ CRectangle CRectangle::operator+(CPoint2D &cpointsec) {
     return *this;
 }
 
-CRectangle CRectangle::operator=(CRectangle &crectsec) {
+CRectangle CRectangle::operator=(const CRectangle &crectsec) {
     cpFirstPoint=crectsec.cpFirstPoint;
     cpSecoundPoint=crectsec.cpSecoundPoint;
+    return *this;
 }

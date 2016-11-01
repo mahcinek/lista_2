@@ -19,13 +19,13 @@ public:
     }
     CRectangle (double dX1, double dY1, double dX2, double dY2);
     double  dCountField ();
-    CPoint2D getcpFirstPoint (){return cpFirstPoint;}
-    CPoint2D getcpSecoundPoint (){return cpSecoundPoint;}
-    CRectangle ( CRectangle &cRectangleOther);
+    CPoint2D getcpFirstPoint ()const {return cpFirstPoint;}
+    CPoint2D getcpSecoundPoint ()const {return  cpSecoundPoint;}
+    CRectangle ( const CRectangle &cRectangleOther);
     ~CRectangle();
-    CRectangle operator+(CRectangle &crectsec);
-    CRectangle operator+ (CPoint2D &cpointsec);
-    CRectangle operator= (CRectangle &crectsec);
+    CRectangle operator+( const CRectangle &crectsec);
+    CRectangle operator+ ( const CPoint2D &cpointsec);
+    CRectangle operator= (const CRectangle &crectsec);
 };
 
 
