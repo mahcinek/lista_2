@@ -99,6 +99,7 @@ int main() {
                 iVal2=stod (vstrings[2].c_str());
                 if (tCrectangle[iVal1]== nullptr||tCrectangle[(int)iVal2]== nullptr) cout<<"Error"<<endl;
                 else {
+
                     *tCrectangle[iVal1]=*tCrectangle[(int)iVal2];}}
             vstrings.clear();
         }

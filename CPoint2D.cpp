@@ -28,10 +28,9 @@ CPoint2D::CPoint2D(const CPoint2D &cPointother) {
 }
 
 CPoint2D CPoint2D::operator=(const CPoint2D &cpointsec) {
-    delete dXaxis;
-    delete dYaxis;
-    dXaxis=new double (cpointsec.dGetXaxis());
-    dYaxis = new double (cpointsec.dGetYaxis());
+
+    *dXaxis=cpointsec.dGetXaxis();
+    *dYaxis=cpointsec.dGetYaxis();
     return *this;
 }
 

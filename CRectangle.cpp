@@ -23,7 +23,35 @@ CRectangle::CRectangle(const CRectangle &cRectangleOther):cpFirstPoint(cRectangl
 }
 
 CRectangle CRectangle::operator +(const CRectangle &crectsec) {
-    if (this->getcpFirstPoint().dGetXaxis()<this->getcpSecoundPoint().dGetXaxis())
+
+    double tintX [4];
+    double tintY [4];
+    tintX[0]=this->getcpFirstPoint().dGetXaxis();
+    tintX[1]=this->getcpSecoundPoint().dGetXaxis();
+    tintX[3]=crectsec.getcpFirstPoint().dGetXaxis();
+    tintX[2]=crectsec.getcpSecoundPoint().dGetXaxis();
+    tintY[0]=this->getcpFirstPoint().dGetYaxis();
+    tintY[1]=this->getcpSecoundPoint().dGetYaxis();
+    tintY[2]=crectsec.getcpFirstPoint().dGetYaxis();
+    tintY[3]=crectsec.getcpSecoundPoint().dGetYaxis();
+    double iXmax=tintX[0];
+    double iXmin=tintX[0];
+    double iYmax=tintY[0];
+    double iYmin=tintY[0];
+    for (int i=0;i<4;i++)
+    {
+        if (tintX[i]>iXmax) iXmax=tintX[i];
+        if (tintX[i]<iXmin) iXmin=tintX[i];
+        if (tintY[i]>iYmax) iYmax=tintY[i];
+        if (tintY[i]<iYmin) iYmin=tintY[i];
+    }
+
+    this->cpFirstPoint.vSetXaxis(iXmin);
+    this->cpSecoundPoint.vSetXaxis(iXmax);
+    this->cpFirstPoint.vSetYaxis(iYmin);
+    this->cpSecoundPoint.vSetYaxis(iYmax);
+
+    /*if (this->getcpFirstPoint().dGetXaxis()<this->getcpSecoundPoint().dGetXaxis())
     {
 
         if (this->getcpFirstPoint().dGetXaxis()>crectsec.getcpFirstPoint().dGetXaxis())
@@ -70,13 +98,38 @@ CRectangle CRectangle::operator +(const CRectangle &crectsec) {
         if (this->getcpFirstPoint().dGetYaxis()<crectsec.getcpFirstPoint().dGetYaxis())
             this->getcpFirstPoint().vSetYaxis(crectsec.getcpFirstPoint().dGetYaxis());
 
-    }
+    }*/
     return *this;
 }
 
 CRectangle CRectangle::operator+(const  CPoint2D &cpointsec) {
 
-    if (this->getcpFirstPoint().dGetXaxis()<this->getcpSecoundPoint().dGetXaxis())
+    double tintX [3];
+    double tintY [3];
+    tintX[0]=this->getcpFirstPoint().dGetXaxis();
+    tintX[1]=this->getcpSecoundPoint().dGetXaxis();
+    tintX[2]=cpointsec.dGetXaxis();
+    tintY[0]=this->getcpFirstPoint().dGetYaxis();
+    tintY[1]=this->getcpSecoundPoint().dGetYaxis();
+    tintY[2]=cpointsec.dGetYaxis();
+    double iXmax=tintX[0];
+    double iXmin=tintX[0];
+    double iYmax=tintY[0];
+    double iYmin=tintY[0];
+    for (int i=0;i<4;i++)
+    {
+        if (tintX[i]>iXmax) iXmax=tintX[i];
+        if (tintX[i]<iXmin) iXmin=tintX[i];
+        if (tintY[i]>iYmax) iYmax=tintY[i];
+        if (tintY[i]<iYmin) iYmin=tintY[i];
+    }
+
+    this->cpFirstPoint.vSetXaxis(iXmin);
+    this->cpSecoundPoint.vSetXaxis(iXmax);
+    this->cpFirstPoint.vSetYaxis(iYmin);
+    this->cpSecoundPoint.vSetYaxis(iYmax);
+
+   /* if (this->getcpFirstPoint().dGetXaxis()<this->getcpSecoundPoint().dGetXaxis())
     {
         if (cpointsec.dGetXaxis()<this->getcpFirstPoint().dGetXaxis())
             this->getcpFirstPoint().vSetXaxis(cpointsec.dGetXaxis());
@@ -104,7 +157,7 @@ CRectangle CRectangle::operator+(const  CPoint2D &cpointsec) {
         if (cpointsec.dGetYaxis()<this->getcpSecoundPoint().dGetYaxis())
             this->getcpSecoundPoint().vSetYaxis(cpointsec.dGetYaxis());
     }
-
+*/
 
     return *this;
 }
